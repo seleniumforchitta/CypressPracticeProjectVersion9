@@ -1,0 +1,102 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-01-24T14:47:33.712Z",
+    "end": "2022-01-24T14:47:53.031Z",
+    "duration": 19319,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "235d1569-b9fc-4157-b944-64d0c1098c86",
+      "title": "",
+      "fullFile": "cypress/integration/TestSuite_ShopMobile/TC1_ShopMobile_E2EPractice.js",
+      "file": "cypress/integration/TestSuite_ShopMobile/TC1_ShopMobile_E2EPractice.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "26314585-e856-44d0-89b4-3188a6d7febc",
+          "title": "Rahulshettyacademy angularpractice",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Purchase Two Mobile Phones in angularpractice Page",
+              "fullTitle": "Rahulshettyacademy angularpractice Purchase Two Mobile Phones in angularpractice Page",
+              "timedOut": null,
+              "duration": 13390,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Cypress.config('defaultCommandTimeout', 8000); // Explicit wait only for this test\n//Creating object for HomePage\nconst homePage = new _HomePage.default();\nconst productsPage = new _ProductsPage.default();\nconst checkoutPage = new _CheckoutPage.default();\ncy.visit(Cypress.env('URL') + '/angularpractice/');\nhomePage.getNameEditBox().type(this.data.name);\nhomePage.getGender().select(this.data.gender); //Now we will validate if the Name is visible in the - Two-way Data Binding example:\nhomePage.getTwoWayDataBindingXpath().should('have.value', this.data.name); //using xpath\nhomePage.getTwoWayDataBindingCSS().should('have.value', this.data.name); //using CSS\n//Now we will validate if property min-length of Name is 2 or not\nhomePage.getNameEditBox().should('have.attr', 'minlength', '2'); //The above is one way else we can use prop() jQuery method\n//check if Entrepreneur (disabled) is disabled or not\nhomePage.getEntrepreneur().should('be.disabled'); //Now we are going to SHOP tab\nhomePage.getShopTab().click(); //cy.selectProduct('Blackberry'); // This method is written in cypress/supoort/commands.js\n//Now instead of giving multiple product name, we can data driven them\n//this.data.productName // To go & fetch the data from example.json, i.e. array\nthis.data.productName.forEach(element => cy.selectProduct(element)); //Click on Checkout tab products page\nproductsPage.getNavigationBar().click();\nproductsPage.getCheckout().click(); //Add the individual price & compare with Total\nvar sumTotal = 0;\ncheckoutPage.getIndividualPrice().each(($el, index, $list) => {\n  const eachPrice = $el.text();\n  var eachPriceNum = eachPrice.split(\" \");\n  eachPriceNum = eachPriceNum[1].trim();\n  cy.log(eachPriceNum);\n  sumTotal = Number(sumTotal) + Number(eachPriceNum);\n}).then(function () // if you don't resolve the promise then before the above loop is completed it will print.\n//cypress is synchronous & javascript is asynchronous\n{\n  cy.log(sumTotal);\n});\ncheckoutPage.getTotalPrice().then(function (element) {\n  const totalAmnt = element.text();\n  var totalPriceNum = totalAmnt.split(\" \");\n  totalPriceNum = totalPriceNum[1].trim();\n  expect(Number(totalPriceNum)).to.equal(sumTotal);\n}); //Click on checkout tab on checkout page\ncheckoutPage.getCheckout().click();\ncheckoutPage.getDelivLoc().type(this.data.country); // Explicit wait declared on the top of this TC.\ncy.wait(Cypress.env('waitTime')); //Explicit wait will work only in the complete test run\ncheckoutPage.getSuggestion().click();\ncheckoutPage.getTandCcheckbox().click();\ncheckoutPage.getPurchaseButton().click();\ncheckoutPage.getSuccessMsg().then(function (element) {\n  const successMsg = element.text();\n  expect(successMsg.includes(\"Success\")).to.be.true; //This is how you compare if the string contains or not\n});",
+              "err": {},
+              "uuid": "2a9caa1c-cfbc-4a61-88c6-7476c4bef4cf",
+              "parentUUID": "26314585-e856-44d0-89b4-3188a6d7febc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2a9caa1c-cfbc-4a61-88c6-7476c4bef4cf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13390,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}

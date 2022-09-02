@@ -1,0 +1,14 @@
+{
+  "viewportWidth": 990,
+  "viewportHeight": 700,
+  "pageLoadTimeout": 100000,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "overwrite": true
+ },
+  "env": {
+    "URL": "https://rahulshettyacademy.com",
+    "waitTime": 6000
+  },
+  "projectId": "rp22cn"
+}
