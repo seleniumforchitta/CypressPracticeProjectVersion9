@@ -85,5 +85,6 @@ it('Purchase Two Mobile Phones in angularpractice Page', function()
             //This is how you compare if the string contains or not
     })
     cy.log("End to End test case execution is completed.");
+    cy.log("Testing Git");
 } )
 } )
