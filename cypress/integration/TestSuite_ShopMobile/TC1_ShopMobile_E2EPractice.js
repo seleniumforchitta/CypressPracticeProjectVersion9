@@ -1,4 +1,4 @@
-/* This a test case purchsing mobile on Rahul Shetty Angular Practice Website
+/* This a test case purchsing mobile on Rahul Shetty Angular Practice Website .
 *  Website - https://rahulshettyacademy.com/angularpractice/shop
 *  Author - Chittaranjan Swain  */
 
