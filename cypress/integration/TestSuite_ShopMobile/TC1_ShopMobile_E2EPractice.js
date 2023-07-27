@@ -1,7 +1,6 @@
-/*This a test case purchsing mobile on Rahul Shetty Angular Practice Website
-* Website - https://rahulshettyacademy.com/angularpractice/shop
-* Author - Chittaranjan Swain
-*/
+/* This a test case purchsing mobile on Rahul Shetty Angular Practice Website
+*  Website - https://rahulshettyacademy.com/angularpractice/shop
+*  Author - Chittaranjan Swain  */
 
 /// <reference types="Cypress" />
 /// <reference types="cypress-iframe" />
@@ -17,6 +16,7 @@ describe('Rahulshettyacademy angularpractice', function()
         this.data=data;
         })
       })
+      
 it('Purchase Two Mobile Phones in angularpractice Page', function()
 {
     Cypress.config('defaultCommandTimeout', 8000); // Explicit wait only for this test
